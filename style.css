@@ -1,0 +1,199 @@
+/*For Reference https://blog.logrocket.com/what-should-modern-css-boilerplate-look-like/#:~:text=A%20CSS%20boilerplate%20is%20a,up%20and%20running%20in%20seconds. */
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+          scroll-behavior: smooth;
+    }
+  }
+
+  *,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    border: none;
+}
+
+
+menu:not(article menu),
+ol:not(article ol),
+ul:not(article ul) {
+    list-style: none;
+}
+
+menu,
+ol,
+ul {
+    padding-left: 0;
+}
+
+article ol,
+article ul {
+    list-style-position: inside;
+}
+
+html {
+    -webkit-text-size-adjust: none; /* for iOS Safari */
+    text-size-adjust: none; /* for other mobile browsers */
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+}
+
+label,
+button,
+select,
+summary,
+[type=radio],
+[type=submit],
+[type=checkbox] {
+    cursor: pointer;
+}
+
+h1{
+    margin: 0;
+    font-size: 4rem;
+    font-weight: lighter;
+    
+}
+
+p{
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: light;
+}
+
+img{
+    max-width: 512px;
+}
+
+body{
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    width: 80;
+    overflow: auto;
+}
+
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 9999;
+}
+
+#Header {
+    background-color: white;
+    text-align: left;
+    margin: 0;
+    width: 100%;
+    padding: 5%;
+}
+
+#Dear {
+    background-color: white;
+    padding: 5%;
+    border-style: solid;
+    border-width: .5rem;
+}
+
+#Container {
+  }
+
+#PictureBox {
+    position: relative;
+    transform: translate(0%, -50%);
+    height: auto;
+}
+
+.top-block, .bottom-block {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .top-block {
+    background-color: white;
+  }
+
+  .bottom-block {
+ 
+  }
+
+#DreamBox {
+  width: 60%;
+  text-align: left;
+  position: relative;
+  transform: translate(0%, -50%);
+}
+
+#Breaker {
+  height: 20rem;
+  background-color: white;
+}
+
+
+.center {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+img {
+    animation: grow 1s ease-in-out forwards;
+  }
+  
+  @keyframes grow {
+    from {
+      width: 90%;
+      box-shadow: rgba(0, 0, 0, 0.0) 0px 0px 0px;
+    }
+    to {
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.54) 0px 3px 8px;
+    }
+  }
+
+  .fade-in-text {
+    opacity: 1;
+    animation-name: opacity;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-direction: forwards;
+  }
+  
+  @keyframes opacity {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 400px) {
+    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+
+    #Breaker{
+      height: 13rem;
+    }
+
+    h1{
+      font-size: 2rem;
+    }
+
+
+    h2{
+    font-size: 1.5rem;
+  }
+
+  #DreamBox {
+    position: relative;
+    transform: translate(0%, -90%);
+  }
+
+
+}
