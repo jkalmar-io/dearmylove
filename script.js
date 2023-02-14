@@ -1,5 +1,5 @@
 var today = new Date();
-      var start = new Date("2023-02-10");
+      var start = new Date("2023-02-13");
       var daysSinceStart = Math.floor((today - start) / (1000 * 60 * 60 * 24));
       console.log("Day " + (daysSinceStart % 365));
       console.log(daysSinceStart);
