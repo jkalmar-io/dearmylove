@@ -101,8 +101,7 @@ body{
     border-width: .5rem;
 }
 
-#Container {
-  }
+
 
 #PictureBox {
     position: relative;
@@ -119,9 +118,7 @@ body{
     background-color: white;
   }
 
-  .bottom-block {
- 
-  }
+
 
 #DreamBox {
   width: 60%;
