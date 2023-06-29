@@ -76,6 +76,17 @@ body{
     overflow: auto;
 }
 
+#Main{
+  display: grid;
+  grid-template-areas: 
+  "1 1 1 1"
+  "1 1 1 1"
+  "1 pic pic 1"
+  "2 pic pic 2"
+  "2 dream dream 2"
+  "2 2 2 2";
+}
+
 #loader {
   position: fixed;
   top: 0;
@@ -107,6 +118,7 @@ body{
     position: relative;
     transform: translate(0%, -50%);
     height: auto;
+    grid-area: pic;
 }
 
 .top-block, .bottom-block {
@@ -116,8 +128,12 @@ body{
   
   .top-block {
     background-color: white;
+    grid-area: 1;
   }
 
+  .bottom-block{
+    grid-area: 2;
+  }
 
 
 #DreamBox {
