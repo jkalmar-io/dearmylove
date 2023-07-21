@@ -115,8 +115,6 @@ body{
 
 
 #PictureBox {
-    position: relative;
-    transform: translate(0%, -50%);
     height: auto;
     grid-area: pic;
 }
@@ -139,8 +137,7 @@ body{
 #DreamBox {
   width: 60%;
   text-align: left;
-  position: relative;
-  transform: translate(0%, -50%);
+  grid-area: dream;
 }
 
 #Breaker {
@@ -203,10 +200,20 @@ img {
     font-size: 1.5rem;
   }
 
-  #DreamBox {
-    position: relative;
-    transform: translate(0%, -90%);
+  #DreamBox{
+    margin-top: 2.25rem;
+    margin-bottom: 2.25rem;
   }
 
+  #Main{
+    display: grid;
+    grid-template-areas: 
+    "1 1"
+    "1 1"
+    "pic pic"
+    "pic pic"
+    "dream dream"
+    "2 2 2 2";
+  }
 
 }
