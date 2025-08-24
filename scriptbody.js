@@ -1,6 +1,24 @@
-	// Get the image element
+// Wait for the image to be created and loaded
+function waitForImage() {
     var img = document.getElementById("image");
-    img.onload = function(){
+    if (img) {
+        // Image exists, set up the onload handler
+        if (img.complete) {
+            // Image already loaded, process it immediately
+            processImage(img);
+        } else {
+            // Image not loaded yet, wait for it
+            img.onload = function() {
+                processImage(img);
+            };
+        }
+    } else {
+        // Image doesn't exist yet, wait a bit and try again
+        setTimeout(waitForImage, 100);
+    }
+}
+
+function processImage(img) {
     // Create a canvas element
     var canvas = document.createElement("canvas");
     var ctx = canvas.getContext("2d");
@@ -44,43 +62,45 @@
     console.log(maxColor);
 
     const body = document.body;
-const computedStyle = window.getComputedStyle(body);
-const backgroundColor = maxColor;
+    const computedStyle = window.getComputedStyle(body);
+    const backgroundColor = maxColor;
 
-if (isDark(backgroundColor)) {
-  console.log(backgroundColor);
-  body.style.color = "white";
-  document.getElementById("Dear").style.borderColor = maxColor;
-  document.getElementById("Header").style.color = maxColor;
-} else {
-  body.style.color = shadeBlend(backgroundColor, 'rgb(0, 0, 0)', .4 );
-  document.getElementById("Dear").style.borderColor = shadeBlend(backgroundColor, 'rgb(0, 0, 0)', .4);
-  document.getElementById("Header").style.color = shadeBlend(backgroundColor, 'rgb(0, 0, 0)', .4);
+    if (isDark(backgroundColor)) {
+        console.log(backgroundColor);
+        body.style.color = "white";
+        document.getElementById("Dear").style.borderColor = maxColor;
+        document.getElementById("Header").style.color = maxColor;
+    } else {
+        body.style.color = shadeBlend(backgroundColor, 'rgb(0, 0, 0)', .4 );
+        document.getElementById("Dear").style.borderColor = shadeBlend(backgroundColor, 'rgb(0, 0, 0)', .4);
+        document.getElementById("Header").style.color = shadeBlend(backgroundColor, 'rgb(0, 0, 0)', .4);
+    }
 }
 
 function isDark(color) {
-  // convert color string to RGB values
-  const colorArray = color.match(/\d+/g).map(Number);
-  const [r, g, b] = colorArray;
+    // convert color string to RGB values
+    const colorArray = color.match(/\d+/g).map(Number);
+    const [r, g, b] = colorArray;
 
-  // use the relative luminance formula to determine if the color is dark
-  const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
-  console.log("Lum:" + luminance);
-  return luminance < 180;
+    // use the relative luminance formula to determine if the color is dark
+    const luminance = 0.299 * r + 0.587 * g + 0.114 * b;
+    console.log("Lum:" + luminance);
+    return luminance < 180;
 }
 
 function shadeBlend(color1, color2, percentage) {
-  // Convert RGB strings to arrays
-  color1 = color1.match(/\d+/g).map(Number);
-  color2 = color2.match(/\d+/g).map(Number);
+    // Convert RGB strings to arrays
+    color1 = color1.match(/\d+/g).map(Number);
+    color2 = color2.match(/\d+/g).map(Number);
 
-  // Blend the colors
-  let blended = color1.map((c, i) => (1 - percentage) * c + percentage * color2[i]);
+    // Blend the colors
+    let blended = color1.map((c, i) => (1 - percentage) * c + percentage * color2[i]);
 
-  // Convert the blended color back to an RGB string
-  return `rgb(${blended.join(',')})`;
+    // Convert the blended color back to an RGB string
+    return `rgb(${blended.join(',')})`;
 }
 
-    }
+// Start waiting for the image when the script loads
+waitForImage();
 
 

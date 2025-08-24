@@ -1,46 +1,46 @@
+
 /*For Reference https://blog.logrocket.com/what-should-modern-css-boilerplate-look-like/#:~:text=A%20CSS%20boilerplate%20is%20a,up%20and%20running%20in%20seconds. */
 
 @media (prefers-reduced-motion: no-preference) {
-    html {
-          scroll-behavior: smooth;
-    }
+  html {
+        scroll-behavior: smooth;
   }
+}
 
-  *,
+*,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 * {
-    border: none;
+  border: none;
 }
-
 
 menu:not(article menu),
 ol:not(article ol),
 ul:not(article ul) {
-    list-style: none;
+  list-style: none;
 }
 
 menu,
 ol,
 ul {
-    padding-left: 0;
+  padding-left: 0;
 }
 
 article ol,
 article ul {
-    list-style-position: inside;
+  list-style-position: inside;
 }
 
 html {
-    -webkit-text-size-adjust: none; /* for iOS Safari */
-    text-size-adjust: none; /* for other mobile browsers */
-  }
+  -webkit-text-size-adjust: none; /* for iOS Safari */
+  text-size-adjust: none; /* for other mobile browsers */
+}
 
-  :focus:not(:focus-visible) {
-    outline: none;
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
 label,
@@ -50,170 +50,182 @@ summary,
 [type=radio],
 [type=submit],
 [type=checkbox] {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-h1{
-    margin: 0;
-    font-size: 4rem;
-    font-weight: lighter;
-    
-}
-
-p{
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: light;
-}
-
-img{
-    max-width: 512px;
-}
-
-body{
-    margin: 0 auto;
-    font-family: 'Playfair Display', serif;
-    width: 80;
-    overflow: auto;
-}
-
-#Main{
-  display: grid;
-  grid-template-areas: 
-  "1 1 1 1"
-  "1 1 1 1"
-  "1 pic pic 1"
-  "2 pic pic 2"
-  "2 dream dream 2"
-  "2 2 2 2";
+body {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #F5F5F5;
 }
 
 #loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  z-index: 9999;
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: white;
+z-index: 9999;
 }
 
 #Header {
-    background-color: white;
-    text-align: left;
-    margin: 0;
-    width: 100%;
-    padding: 5%;
+  background-color: white;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+  padding: 2rem;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
 }
 
 #Dear {
-    background-color: white;
-    padding: 5%;
-    border-style: solid;
-    border-width: .5rem;
+  background-color: white;
+  padding: 2rem;
+  border-style: solid;
+  border-width: .5rem;
+  margin: 0;
+  font-size: 3rem;
+  font-weight: lighter;
 }
 
-
+#Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  padding: 3rem;
+  margin: 2rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+  max-width: 800px;
+  width: 90%;
+}
 
 #PictureBox {
-    height: auto;
-    grid-area: pic;
+  margin-bottom: 2rem;
 }
 
-.top-block, .bottom-block {
-    width: 100%;
-    text-align: center;
-  }
-  
-  .top-block {
-    background-color: white;
-    grid-area: 1;
-  }
-
-  .bottom-block{
-    grid-area: 2;
-  }
-
+#PictureBox img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  animation: grow 1s ease-in-out forwards;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+}
 
 #DreamBox {
-  width: 60%;
-  text-align: left;
-  grid-area: dream;
+  text-align: center;
+  margin-top: 1rem;
 }
 
-#Breaker {
-  height: 20rem;
-  background-color: white;
+#DreamBox h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
+#DreamBox p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
 
 .center {
-    display: block;
-    margin: 0 auto;
-    text-align: center;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
-img {
-    animation: grow 1s ease-in-out forwards;
-  }
-  
-  @keyframes grow {
-    from {
-      width: 90%;
+@keyframes grow {
+  from {
+      width: 50%;
+      max-width: 200px;
       box-shadow: rgba(0, 0, 0, 0.0) 0px 0px 0px;
-    }
-    to {
+  }
+  to {
       width: 100%;
+      max-width: 400px;
       box-shadow: rgba(0, 0, 0, 0.54) 0px 3px 8px;
-    }
   }
+}
 
-  .fade-in-text {
-    opacity: 1;
-    animation-name: opacity;
-    animation-duration: 1s;
-    animation-timing-function: ease-in-out;
-    animation-direction: forwards;
-  }
-  
-  @keyframes opacity {
-    from {
+.fade-in-text {
+  opacity: 1;
+  animation-name: opacity;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-direction: forwards;
+}
+
+@keyframes opacity {
+  from {
       opacity: 0;
-    }
-    to {
+  }
+  to {
       opacity: 1;
-    }
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+      padding: 1rem;
   }
 
-  @media (max-width: 400px) {
-    /* CSS that should be displayed if width is equal to or less than 800px goes here */
+  #Header {
+      padding: 1rem;
+  }
 
-    #Breaker{
-      height: 13rem;
-    }
-
-    h1{
+  #Dear {
       font-size: 2rem;
-    }
-
-
-    h2{
-    font-size: 1.5rem;
+      padding: 1rem;
   }
 
-  #DreamBox{
-    margin-top: 2.25rem;
-    margin-bottom: 2.25rem;
+  #Main {
+      margin: 1rem;
+      padding: 2rem;
+      width: 95%;
   }
 
-  #Main{
-    display: grid;
-    grid-template-areas: 
-    "1 1"
-    "1 1"
-    "pic pic"
-    "pic pic"
-    "dream dream"
-    "2 2 2 2";
+  #PictureBox img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      aspect-ratio: 1 / 1;
   }
 
+  #DreamBox h2 {
+      font-size: 1.3rem;
+  }
+
+  #DreamBox p {
+      font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  #PictureBox img {
+      width: 100%;
+      max-width: 250px;
+      height: auto;
+      aspect-ratio: 1 / 1;
+  }
+
+  #Dear {
+      font-size: 1.5rem;
+  }
+
+  #Main {
+      padding: 1.5rem;
+  }
 }
